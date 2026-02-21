@@ -338,27 +338,36 @@ const enterScreen = document.getElementById("enter-screen");
 const audio = document.getElementById("enter-audio");
 const site = document.getElementById("site-wrapper");
 
-enterScreen.addEventListener("click", () => {
+enterScreen.addEventListener("click", async () => {
+  try {
+    // ensure browser treats this as user interaction
+    audio.currentTime = 0;
+    audio.volume = 0;
 
-  audio.volume = 0;
-  audio.play();
+    await audio.play(); // VERY IMPORTANT (wait for permission)
 
-  let vol = 0;
-  const fadeAudio = setInterval(() => {
-    if (vol < 0.5) {
-      vol += 0.02;
-      audio.volume = vol;
-    } else {
-      clearInterval(fadeAudio);
-    }
-  }, 40);
+    // fade audio in
+    let vol = 0;
+    const fade = setInterval(() => {
+      if (vol < 0.5) {
+        vol += 0.02;
+        audio.volume = vol;
+      } else {
+        clearInterval(fade);
+      }
+    }, 40);
 
-  enterScreen.classList.add("fade");
+    // reveal site AFTER audio starts
+    enterScreen.classList.add("fade");
 
-  setTimeout(() => {
-    enterScreen.style.display = "none";
-    site.classList.remove("site-hidden");
-  }, 800);
+    setTimeout(() => {
+      enterScreen.style.display = "none";
+      site.classList.remove("site-hidden");
+    }, 800);
+
+  } catch (err) {
+    console.log("Audio blocked:", err);
+  }
 });
 </script>
 </body>
