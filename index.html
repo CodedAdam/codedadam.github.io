@@ -83,7 +83,6 @@ body::before {
   font-size: 1.1rem;
 }
 
-/* SECTION */
 section {
   max-width: 1100px;
   margin: auto;
@@ -98,7 +97,6 @@ h2 {
   font-family: Helvetica;
 }
 
-/* LANGUAGES */
 .languages {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -135,7 +133,6 @@ h2 {
   font-size: 1rem;
 }
 
-/* EXPERIENCE */
 .experience {
   display: grid;
   gap: 20px;
@@ -345,16 +342,6 @@ enterScreen.addEventListener("click", async () => {
     audio.volume = 0;
 
     await audio.play(); 
-    // fade audio in
-    let vol = 0;
-    const fade = setInterval(() => {
-      if (vol < 0.7) {
-        vol += 0.02;
-        audio.volume = vol;
-      } else {
-        clearInterval(fade);
-      }
-    }, 40);
 
     enterScreen.classList.add("fade");
 
