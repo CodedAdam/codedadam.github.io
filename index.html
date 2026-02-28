@@ -31,7 +31,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Floating subtle gradient glow */
 body::before {
   content: "";
   position: fixed;
@@ -49,7 +48,6 @@ body::before {
   to { transform: translateY(40px); }
 }
 
-/* HERO */
 .hero {
   text-align: center;
   padding: 120px 20px 80px;
@@ -343,12 +341,10 @@ const site = document.getElementById("site-wrapper");
 
 enterScreen.addEventListener("click", async () => {
   try {
-    // ensure browser treats this as user interaction
     audio.currentTime = 0;
     audio.volume = 0;
 
-    await audio.play(); // VERY IMPORTANT (wait for permission)
-
+    await audio.play(); 
     // fade audio in
     let vol = 0;
     const fade = setInterval(() => {
@@ -360,7 +356,6 @@ enterScreen.addEventListener("click", async () => {
       }
     }, 40);
 
-    // reveal site AFTER audio starts
     enterScreen.classList.add("fade");
 
     setTimeout(() => {
