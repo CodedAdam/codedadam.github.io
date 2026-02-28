@@ -352,7 +352,7 @@ enterScreen.addEventListener("click", async () => {
     // fade audio in
     let vol = 0;
     const fade = setInterval(() => {
-      if (vol < 0.5) {
+      if (vol < 0.7) {
         vol += 0.02;
         audio.volume = vol;
       } else {
