@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="favicon.png">
+
+<link rel="shortcut icon" type="image/png" href="favicon.png">
+<title>codedadam</title>
+
+<style>
+:root {
+  --bg: #050505;
+  --card: #111111;
+  --accent: #7c3aed;
+  --accent2: #06b6d4;
+  --white: #ffffff;
+  --muted: #888888;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(124,58,237,0.2), transparent 70%);
+  top: -200px;
+  left: -200px;
+  z-index: -1;
+  animation: float 8s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  from { transform: translateY(0px); }
+  to { transform: translateY(40px); }
+}
+
+.hero {
+  text-align: center;
+  padding: 120px 20px 80px;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+.hero .meet {
+  font-size: 1.2rem;
+  color: var(--muted);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+ .exp-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+
+.hero .name {
+  color: var(--white);
+}
+
+.hero p {
+  margin-top: 15px;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: var(--white);
+  font-family: Helvetica;
+}
+
+.languages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 25px;
+}
+
+.lang-card {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 16px;
+  text-align: center;
+  transition: 0.4s ease;
+  border: 1px solid #1f1f1f;
+}
+
+.lang-card img {
+  width: 60px;
+  margin-bottom: 15px;
+  filter: grayscale(100%);
+  transition: 0.4s ease;
+}
+
+.lang-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+}
+
+.lang-card:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+.lang-card h3 {
+  font-size: 1rem;
+}
+
+.experience {
+  display: grid;
+  gap: 20px;
+}
+
+.exp-card {
+  display: flex;
+  align-items: center;
+  background: var(--card);
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #1f1f1f;
+  transition: 0.3s ease;
+}
+
+.exp-card:hover {
+  transform: scale(1.02);
+  border-color: var(--accent2);
+}
+
+.exp-card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.rank {
+  font-size: 0.9rem;
+  color: var(--white);
+  font-family: monospace;
+}
+
+
+.status {
+  font-size: 0.8rem;
+  margin-top: 4px;
+  color: var(--muted);
+    font-family: monospace;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#enter-screen {
+  position: fixed;
+  inset: 0;
+  background: #050505;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  cursor: pointer;
+  transition: opacity 0.8s ease;
+}
+
+#enter-screen h1 {
+  font-size: 2rem;
+  letter-spacing: 3px;
+  color: white;
+  opacity: 0.8;
+  animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+#enter-screen.fade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.site-hidden {
+  visibility: hidden;
+}
+</style>
+</head>
+</div>
+<body>
+
+<div id="enter-screen">
+  <h1>CLICK TO ENTER</h1>
+</div>
+
+<audio id="enter-audio" src="music.mp3" loop></audio>
+
+<div id="site-wrapper" class="site-hidden">
+
+<div class="hero">
+  <div class="meet">MEET ADAM</div>
+  <h1 class="name">codedadam</h1>
+  <p>Roblox Scripter • System Architect • Automation Engineer</p>
+</div>
+
+<section>
+  <h2>LANGUAGES</h2>
+  <div class="languages">
+    <div class="lang-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+      <h3>HTML</h3>
+    </div>
+    <div class="lang-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+      <h3>CSS</h3>
+    </div>
+    <div class="lang-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+      <h3>JavaScript</h3>
+    </div>
+    <div class="lang-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg">
+      <h3>TypeScript</h3>
+    </div>
+    <div class="lang-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/lua/lua-original.svg">
+      <h3>Lua</h3>
+    </div>
+    <div class="lang-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+      <h3>Python</h3>
+    </div>
+    <div class="lang-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg">
+      <h3>Shell</h3>
+    </div>
+    <div class="lang-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
+      <h3>SQL</h3>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>EXPERIENCE</h2>
+  <div class="experience">
+
+    <a href="https://www.roblox.com/communities/35502996/Kahiwa" target="_blank" class="exp-link">
+      <div class="exp-card">
+        <img src="https://tr.rbxcdn.com/180DAY-65020f49075fa2fe9d8a4bb05d834c7a/150/150/Image/Webp/noFilter">
+        <div>
+          <h3>Kahiwa</h3>
+          <div class="rank">Lead Developer, Systems Engineer</div>
+          <div class="status">January, 2025 - Present</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.roblox.com/communities/33749380/Pitstop-RP" target="_blank" class="exp-link">
+      <div class="exp-card">
+        <img src="https://tr.rbxcdn.com/180DAY-20b880ef0c9d7608967ed97361a0d80f/150/150/Image/Webp/noFilter">
+        <div>
+          <h3>Pitstop 72</h3>
+          <div class="rank">Lead Developer, Training Systems</div>
+          <div class="status">March, 2025 - Present</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.roblox.com/communities/14559215/Koaha" target="_blank" class="exp-link">
+      <div class="exp-card">
+        <img src="https://tr.rbxcdn.com/180DAY-9b3ef88ef6735026eca18872ae5ba7c9/150/150/Image/Webp/noFilter">
+        <div>
+          <h3>Koaha</h3>
+          <div class="rank">Developer, Quality Assurance</div>
+          <div class="status">April, 2025 - Present</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.roblox.com/communities/36020305/ilIuminated" target="_blank" class="exp-link">
+      <div class="exp-card">
+        <img src="https://tr.rbxcdn.com/180DAY-618dc0697b631a87079cd8ca7fee043b/150/150/Image/Webp/noFilter">
+        <div>
+          <h3>illuminated</h3>
+          <div class="rank">Lead Developer, Systems Engineer</div>
+          <div class="status">April, 2025 - Present</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.roblox.com/communities/957785807/Tokimune" target="_blank" class="exp-link">
+      <div class="exp-card">
+        <img src="https://tr.rbxcdn.com/180DAY-2bca7d96e75454021cdb947217da7d2e/150/150/Image/Webp/noFilter">
+        <div>
+          <h3>Tokimune</h3>
+          <div class="rank">Developer, Systems Engineer</div>
+          <div class="status">February, 2026 - Present</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+<script>
+const enterScreen = document.getElementById("enter-screen");
+const audio = document.getElementById("enter-audio");
+const site = document.getElementById("site-wrapper");
+
+enterScreen.addEventListener("click", async () => {
+  try {
+    audio.currentTime = 0;
+    audio.volume = 1;
+
+    await audio.play(); 
+
+    enterScreen.classList.add("fade");
+
+    setTimeout(() => {
+      enterScreen.style.display = "none";
+      site.classList.remove("site-hidden");
+    }, 800);
+
+  } catch (err) {
+    console.log("Audio blocked:", err);
+  }
+});
+</script>
+</body>
+</html>
